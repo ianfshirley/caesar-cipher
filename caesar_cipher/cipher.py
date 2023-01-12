@@ -73,21 +73,30 @@ def crack(ciphertext):
   decode an encrypted message without the key. use brute force, shift one letter at a time from 1-25 until the message is decoded
   """
 
-  cracked = ""
-
   for shift in range(26):
-    decrypted = decrypt(ciphertext, shift).split()
+    decrypted_phrase = decrypt(ciphertext, shift)
+    test_phrase = decrypted_phrase.split()
 
-    for word in decrypted:
-      if word in reference_list:
-        cracked += word + " "
+    if all(word.lower() in reference_list for word in test_phrase if word.isalpha()):
+      return ' '.join(test_phrase)
+  
+  return ''
 
 
-  return cracked
+  # for shift in range(26):
+  #   decrypted = decrypt(ciphertext, shift).split()
+
+  #   for word in decrypted:
+      
+  #     if word in reference_list:
+  #       return " ".join(decrypted)
+
+
+  # return ""
 
 
 if __name__ == "__main__":
   # print(encrypt('hello world', 5))
   # print(decrypt('mjqqt btwqi', 5))
-  print(crack('mjqqt btwqi'))
+  print(crack('It was the best of times, it was the worst of times.'))
 
