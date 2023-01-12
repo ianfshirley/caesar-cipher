@@ -16,5 +16,4 @@ How to initialize/run: python cipher.py
 
 - How do you run tests?
   - pytest ~/.../cipher.py
-- Any tests of note?
-  - 
+
