@@ -38,15 +38,21 @@ def encrypt(plaintext, shift):
 
       char_ord = ord(char) + shift_num
       
-      if char_ord < 97:
-        char_ord += 26
-      elif char_ord > 122:
-        char_ord -= 26
+      if char.isupper():
+        if char_ord < 65:
+          char_ord += 26
+        elif char_ord > 90:
+          char_ord -= 26
+      elif char.islower():
+        if char_ord < 97:
+          char_ord += 26
+        elif char_ord > 122:
+          char_ord -= 26
 
       ciphertext += chr(char_ord)
       # print(char_ord)
     else:
-      ciphertext += " "    
+      ciphertext += char    
   # print(ciphertext)
   return ciphertext
   
