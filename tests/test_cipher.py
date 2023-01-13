@@ -26,10 +26,10 @@ def test_uppercase():
     assert actual == expected
 
 
-# def test_with_whitespace():
-#     actual = encrypt("apples and bananas", 1)
-#     expected = "bqqmft boe cbobobt"
-#     assert actual == expected
+def test_with_whitespace():
+    actual = encrypt("apples and bananas", 1)
+    expected = "bqqmft boe cbobobt"
+    assert actual == expected
 
 
 def test_with_non_alpha():
